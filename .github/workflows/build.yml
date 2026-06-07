@@ -360,7 +360,7 @@ jobs:
               ;;
 
             "ReSukiSU"|"ReSukiSU-with-susfs")
-              curl -LSs "https://raw.githubusercontent.com/ReSukiSU/ReSukiSU/refs/heads/dev/kernel/setup.sh" | bash -s dev || exit 1
+              curl -LSs "https://raw.githubusercontent.com/ReSukiSU/ReSukiSU/refs/heads/main/kernel/setup.sh" | bash -s main || exit 1
               ;;
 
           esac
