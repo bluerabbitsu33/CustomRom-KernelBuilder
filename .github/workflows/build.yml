@@ -150,7 +150,7 @@ on:
         description: "DroidSpaces: Enable DroidSpaces"
         required: true
         type: choice
-        default: None
+        default: 5.15-6.6
         options:
           - None
           - "6.12"
