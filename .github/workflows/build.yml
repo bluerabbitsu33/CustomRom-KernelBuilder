@@ -235,7 +235,15 @@ jobs:
           curl \
           dwarves \
           cpio \
-          gcc-aarch64-linux-gnu
+          gcc-aarch64-linux-gnu \
+          openssl
+    
+          # 添加 OpenSSL 1.1 兼容库
+          sudo apt install -y libssl1.1-dev || sudo apt install -y libssl-dev
+    
+          # 创建软链接以使用系统 OpenSSL
+          sudo ln -sf /usr/lib/x86_64-linux-gnu/libssl.so /usr/lib/libssl.so
+          sudo ln -sf /usr/lib/x86_64-linux-gnu/libcrypto.so /usr/lib/libcrypto.so
           
       - name: Save options
         run: |
