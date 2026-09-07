@@ -483,28 +483,6 @@ jobs:
 
           touch ./.scmversion
 
-      - name: Fix KernelSU integration
-        if: inputs.ksu_type != 'None'
-        run: |
-          cd ${{ inputs.soc }} || exit 1
-    
-          # 检查 exec.c 中的 KSU 引用
-          if grep -q "ksu_install_su_fd" fs/exec.c; then
-            # 确保包含正确的头文件
-            if ! grep -q "#include.*ksu" fs/exec.c; then
-              # 在文件开头添加 include
-              sed -i '1i #ifdef CONFIG_KSU\n#include <linux/ksu.h>\n#endif' fs/exec.c
-            fi
-          fi
-    
-          # 检查 KernelSU 的 Makefile
-          if [ -f "KernelSU/Makefile" ]; then
-            # 确保 KernelSU 被添加到构建中
-            if ! grep -q "KernelSU" Makefile; then
-              echo 'obj-y += KernelSU/' >> Makefile
-            fi
-          fi
-
       - name: Fix OpenSSL and WERROR issues
         run: |
           cd ${{ inputs.soc }} || exit 1
