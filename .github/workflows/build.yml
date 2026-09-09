@@ -118,6 +118,7 @@ on:
           - KernelSU-by-xx
           - ReSukiSU
           - ReSukiSU-with-susfs
+          - ReSukiSU-sync-upstream
 
       susfs-gki:
         description: "SUSFS-GKI: select ur kernel version(for gki)"
@@ -361,6 +362,10 @@ jobs:
 
             "ReSukiSU"|"ReSukiSU-with-susfs")
               curl -LSs "https://raw.githubusercontent.com/ReSukiSU/ReSukiSU/refs/heads/main/kernel/setup.sh" | bash -s main || exit 1
+              ;;
+
+            "ReSukiSU-sync-upstream")
+              curl -LSs "https://raw.githubusercontent.com/ReSukiSU/ReSukiSU/refs/heads/sync-upstream/kernel/setup.sh" | bash -s sync-upstream || exit 1
               ;;
 
           esac
