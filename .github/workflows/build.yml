@@ -24,7 +24,7 @@ on:
         description: "SOC: Type your soc 输入你设备的处理器代号 如smxxx mtxxx"
         required: true
         type: string
-        default: "sm8550"
+        default: "sm8750"
 
       clang_version:
         description: "Clang-Version: Select the clang version of ur kernel 选择你的内核时编译的Clang版本"
@@ -44,7 +44,7 @@ on:
         description: "Kernel-Source: Kernel repo's org/user on github 输入内核源码仓库的所有者"
         required: true
         type: choice
-        default: LineageOS
+        default: crdroidandroid
         options:
           - Manual-Type
           - LineageOS
@@ -81,13 +81,13 @@ on:
         description: "Kernel-Branch: such as lineage-23.2 sixteen-qpr1 etc. 输入你的内核源码仓库分支"
         required: true
         type: string
-        default: "lineage-23.2"
+        default: "16.0"
         
       kernel_configs:
         description: "Kernel-Configs: Select ur kernel configs(Use Manual-Type to custom it) 选择编译内核使用的config文件 如果要自定义请看下面的选项"
         required: true
         type: choice
-        default: oplus-sm8550-los
+        default: oplus-sm8750-los
         options:
           - Manual-Type
           - oplus-sdm845-los
@@ -121,7 +121,7 @@ on:
         description: "KSU: KernelSU Version 请选择要编译进内核的KernelSU版本"
         required: true
         type: choice
-        default: None
+        default: ReSukiSU-with-susfs
         options:
           - None
           - Official-KernelSU
@@ -131,12 +131,13 @@ on:
           - KernelSU-by-xx
           - ReSukiSU
           - ReSukiSU-with-susfs
+          - ReSukiSU-sync-upstream
 
       susfs-gki:
         description: "SUSFS-GKI: select ur kernel version(for gki) 如果需要SuSFS GKI 请选择你的GKI内核KMI版本"
         required: true
         type: choice
-        default: None
+        default: android15-6.6
         options:
           - None
           - android12-5.10
@@ -164,7 +165,7 @@ on:
         description: "DroidSpaces: Enable DroidSpaces 启用DroidSpaces"
         required: true
         type: choice
-        default: None
+        default: 5.15-6.6
         options:
           - None
           - "6.12"
@@ -383,6 +384,10 @@ jobs:
 
             "ReSukiSU"|"ReSukiSU-with-susfs")
               curl -LSs "https://raw.githubusercontent.com/ReSukiSU/ReSukiSU/refs/heads/main/kernel/setup.sh" | bash -s main || exit 1
+              ;;
+
+            "ReSukiSU-sync-upstream")
+              curl -LSs "https://raw.githubusercontent.com/ReSukiSU/ReSukiSU/refs/heads/sync-upstream/kernel/setup.sh" | bash -s sync-upstream || exit 1
               ;;
 
           esac
