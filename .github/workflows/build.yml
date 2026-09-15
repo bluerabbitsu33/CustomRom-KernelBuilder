@@ -723,7 +723,7 @@ jobs:
       - name: Make AnyKernel3
         run: |
           ZIP_NAME="${{ inputs.soc }}_${{ inputs.kernel_source }}-${{ inputs.kernel_branch }}_${{ inputs.ksu_type }}_$(date -u +"%Y%m%d_%H%M")"
-          git clone https://github.com/osm0sis/AnyKernel3 || exit 1
+          git clone https://github.com/cctv18/AnyKernel3.git || exit 1
           cp ${{ inputs.soc }}/out/arch/arm64/boot/Image AnyKernel3/Image
           cp ${{ inputs.soc }}/out/arch/arm64/boot/Image ./Image
           cp ${{ inputs.soc }}/out/.config ./.config
