@@ -624,7 +624,7 @@ jobs:
 
           if [[ "${{ inputs.nomount }}" == "true" ]]; then
            sed -i '/CONFIG_NOMOUNT/d' arch/arm64/configs/${configs_list[0]}
-            echo CONFIG_NOMOUNT=y" >> arch/arm64/configs/${configs_list[0]}
+            echo "CONFIG_NOMOUNT=y" >> arch/arm64/configs/${configs_list[0]}
             echo "Enabled NoMount"
           fi
            
