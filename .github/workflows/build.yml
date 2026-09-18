@@ -619,14 +619,14 @@ jobs:
 
           if [[ "${{ inputs.nomount }}" == "true" ]]; then
            sed -i '/CONFIG_NOMOUNT/d' arch/arm64/configs/${configs_list[0]}
-            echo CONFIG_NOMOUNT=y" >> arch/arm64/configs/${configs_list[0]}
+            echo "CONFIG_NOMOUNT=y" >> arch/arm64/configs/${configs_list[0]}
             echo "Enabled NoMount"
           fi
            
           if [[ "${{ inputs.enable_config }}" == "true" ]]; then
 
             sed -i '/${{ inputs.enable_config }}/d' arch/arm64/configs/${configs_list[0]}
-            echo ${{ inputs.enable_config }}=y" >> arch/arm64/configs/${configs_list[0]}
+            echo "${{ inputs.enable_config }}=y" >> arch/arm64/configs/${configs_list[0]}
             echo "Enabled U input config"
 
           fi
@@ -634,7 +634,7 @@ jobs:
           if [[ "${{ inputs.disable_config }}" == "true" ]]; then
 
             sed -i '/${{ inputs.disable_config }}/d' arch/arm64/configs/${configs_list[0]}
-            echo ${{ inputs.disable_config }}=n" >> arch/arm64/configs/${configs_list[0]}
+            echo "${{ inputs.disable_config }}=n" >> arch/arm64/configs/${configs_list[0]}
             echo "Disabled U input config"
 
           fi
