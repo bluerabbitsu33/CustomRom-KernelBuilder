@@ -30,7 +30,7 @@ on:
         description: "Clang-Version: Select the clang version of ur kernel 选择你的内核时编译的Clang版本"
         required: true
         type: choice
-        default: clang-r563880c
+        default: clang-r596125
         options:
           - clang-r416183b1 #lineage-19.1 in android12-qpr3-release
           - clang-r450784d  #lineage-20.0 in android13-qpr3-release
@@ -81,7 +81,7 @@ on:
         description: "Kernel-Branch: such as lineage-23.2 sixteen-qpr1 etc. 输入你的内核源码仓库分支"
         required: true
         type: string
-        default: "16.0"
+        default: "17.0"
         
       kernel_configs:
         description: "Kernel-Configs: Select ur kernel configs(Use Manual-Type to custom it) 选择编译内核使用的config文件 如果要自定义请看下面的选项"
