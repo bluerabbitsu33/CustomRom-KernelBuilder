@@ -131,7 +131,7 @@ on:
           - KernelSU-by-xx
           - BakaSU
           - BakaSU-with-susfs
-          - BakaSU-rename-project
+          - BakaSU-sync-upstream
 
       susfs-gki:
         description: "SUSFS-GKI: select ur kernel version(for gki) 如果需要SuSFS GKI 请选择你的GKI内核KMI版本"
@@ -386,8 +386,8 @@ jobs:
               curl -LSs "https://raw.githubusercontent.com/Baka-SU/BakaSU/refs/heads/main/kernel/setup.sh" | bash -s main || exit 1
               ;;
 
-            "BakaSU-rename-project")
-              curl -LSs "https://raw.githubusercontent.com/Baka-SU/BakaSU/refs/heads/rename-project/kernel/setup.sh" | bash -s rename-project || exit 1
+            "BakaSU-sync-upstream")
+              curl -LSs "https://raw.githubusercontent.com/Baka-SU/BakaSU/refs/heads/sync-upstream/kernel/setup.sh" | bash -s rename-project || exit 1
               ;;
 
           esac
